@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-app xmlns="uri:oozie:workflow:0.2" name="huanghuDemo">
+    <start to="harMR"/>
+
+	<action name="harMR">
+     <map-reduce>
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <prepare>
+                <delete path="${nameNode}/user/${wf:user()}/archive/harTest"/>
+            </prepare>
+            <configuration>
+                <property>
+		            <name>mapred.mapper.new-api</name>
+		            <value>true</value>
+	            </property>
+				<property>
+					<name>mapred.reducer.new-api</name>
+					 <value>true</value>
+				</property>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+<!--                <property>
+					<name>com.jd.ebsdi.mapreduce.workflow.name</name>
+					<value>${wf:name()}</value>
+				</property>
+                <property>
+                    <name>com.jd.ebsdi.mapreduce.batchnum</name>
+                    <value>${wf:actionData('InitialData')['batchNum']}</value>
+                </property>-->
+                <property>
+                    <name>mapreduce.map.class</name>
+                    <value>hadoop.job.har.MapReduceHar$MapClass</value>
+                </property>
+                <property>
+					<name>mapreduce.reduce.class</name>
+					<value>hadoop.job.har.MapReduceHar$Reduce</value>
+				</property>
+                <property>
+					<name>mapreduce.inputformat.class</name>
+					<value>org.apache.hadoop.mapreduce.lib.input.TextInputFormat</value>
+				</property>
+				<property>
+					<name>mapreduce.outputformat.class</name>
+					<value>org.apache.hadoop.mapreduce.lib.output.TextOutputFormat</value>
+				</property>
+                <property>
+					<name>mapred.mapoutput.key.class</name>
+					<value>org.apache.hadoop.io.Text</value>
+				</property>
+                <property>
+					<name>mapred.output.key.class</name>
+					<value>org.apache.hadoop.io.Text</value>
+				</property>
+				<!--
+				<property>
+					<name>mapred.output.value.class</name>
+					<value>com.jd.ebsdi.core.domain.MREntityWritable</value>
+				</property>
+				-->
+				<!--<property>
+					<name>mapred.output.compress</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>mapred.output.compression.codec</name>
+					<value>org.apache.hadoop.io.compress.GzipCodec</value>
+				</property>-->
+                <property>
+                    <name>mapred.input.dir</name>
+                    <value>/user/root/input_data/ap/settlement/ebook/ebookDetail/archive/har/*.har</value>
+                </property>
+                <property>
+                    <name>mapred.output.dir</name>
+                    <value>/user/root/archive/harTest</value>
+                </property>
+            </configuration>
+        </map-reduce>
+        <ok to="end"/>
+        <error to="fail"/>
+    </action>
+    <kill name="fail">
+        <message>Sqoop failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>
