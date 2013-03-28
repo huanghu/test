@@ -162,6 +162,10 @@
   
 	<repositories>
 		<repository>
+			<name>base</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
 			<id>cloudera</id>
 			<url>https://repository.cloudera.com/artifactory/libs-release/</url>
 		</repository>
