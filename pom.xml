@@ -14,19 +14,24 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <cxf.version>2.2.4</cxf.version>
 	<spring.version>3.1.0.RELEASE</spring.version>
+	<jackson.version>1.9.12</jackson.version>
   </properties>
 
   <dependencies>
+  		<!-- 
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>sqlserver-jdbc</artifactId>
 			<version>3.0</version>
 		</dependency>
+		 -->
+		 <!-- 
 		<dependency>
 		  <groupId>com.oracle</groupId>
 		  <artifactId>ojdbc14</artifactId>
 		  <version>10.2.0.1.0</version>
 		</dependency>
+		 -->
 		<dependency>
 		    <groupId>commons-cli</groupId>
 		    <artifactId>commons-cli</artifactId>
@@ -35,12 +40,12 @@
 		<dependency>
 		    <groupId>org.codehaus.jackson</groupId>
 		    <artifactId>jackson-mapper-asl</artifactId>
-		    <version>1.5.2</version>
+		    <version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.codehaus.jackson</groupId>
 		    <artifactId>jackson-mapper-lgpl</artifactId>
-		    <version>1.5.2</version>
+		    <version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -162,8 +167,12 @@
   
 	<repositories>
 		<repository>
-			<name>base</name>
+			<id>base</id>
 			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>maven</id>
+			<url>http://mirrors.ibiblio.org/maven2/</url>
 		</repository>
 		<repository>
 			<id>cloudera</id>
