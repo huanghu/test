@@ -3,8 +3,7 @@ package com.buy.test.concurrent.executors;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-/**
- * ������� ������ 6-4
+/**6-4
  * @author Huanghu
  *
  */
@@ -19,7 +18,6 @@ public class ExecuteDemo1 {
 		while (true) {
 			Runnable task = new Runnable() {
 				volatile boolean sync = true;				
-				@Override
 				public void run() {
 					// TODO Auto-generated method stub
 //					synchronized (this) {

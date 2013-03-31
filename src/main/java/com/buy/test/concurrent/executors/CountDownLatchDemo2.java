@@ -17,7 +17,6 @@ public class CountDownLatchDemo2 {
 		for(int i = 0 ;i < nThread ;i ++){
 			service.execute(new Runnable() {
 				
-				@Override
 				public void run() {
 					try {
 						startGate.await();

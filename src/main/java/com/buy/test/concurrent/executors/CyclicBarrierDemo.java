@@ -13,7 +13,6 @@ public class CyclicBarrierDemo {
 		this.nCpu = Runtime.getRuntime().availableProcessors();
 		barrier = new CyclicBarrier(nCpu , 
 				new Runnable() {
-					@Override
 					public void run() {
 						System.out.println("end");
 					}
@@ -26,13 +25,13 @@ public class CyclicBarrierDemo {
 		for (int i = 0; i < nCpu; i++) {
 			service.execute(new Runnable() {
 				
-				@Override
 				public void run() {
 					System.out.println("barrier start");
 					try {
 						barrier.await();
-					} catch (InterruptedException | BrokenBarrierException e) {
-						// TODO Auto-generated catch block
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					} catch (BrokenBarrierException e) {
 						e.printStackTrace();
 					}
 				}

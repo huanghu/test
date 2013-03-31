@@ -46,7 +46,6 @@ public class ArrayBlockingQueueDemo<E> {
 		while (count < 20) {
 			System.out.println(String.format("count %d", count));
 			Runnable runnable = new Runnable() {
-				@Override
 				public void run() {
 					// TODO Auto-generated method stub
 					AtomicInteger value = demo.getValue();
