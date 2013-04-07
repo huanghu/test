@@ -1,0 +1,11 @@
+  id               NUMBER,
+  name             VARCHAR2(50),
+  rebate_cat       VARCHAR2(50),
+  ebs_account_cat  VARCHAR2(50),
+  transfer_account VARCHAR2(50),
+  account          VARCHAR2(50),
+  dept             VARCHAR2(50),
+  default_tax_rate VARCHAR2(50),
+  yn               NUMBER,
+  creation_time    DATE,
+  update_time      DATE

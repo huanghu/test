@@ -23,7 +23,7 @@ import java.util.concurrent.FutureTask;
 public class FutureTaskDemo {
 	public static void main(String[] args) throws InterruptedException, ExecutionException{
 		int nThreads = 10;
-		final BlockingQueue<String> queue = new ArrayBlockingQueue<>(nThreads);
+		final BlockingQueue<String> queue = new ArrayBlockingQueue<String>(nThreads);
 		String[] names = new String[]{
 				"http://dmimg.5054399.com/allimg/130209/6_130209110926_1.jpg",
 				"http://dmimg.5054399.com/allimg/130210/6_130210115431_1.jpg",

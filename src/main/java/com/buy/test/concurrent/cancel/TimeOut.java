@@ -4,8 +4,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.derby.tools.sysinfo;
-
 /**
  * 对应着《java并发编程实战》 程序清单7-9
  * @author huanghu
@@ -78,7 +76,7 @@ public class TimeOut {
 				}
 			};
 			
-			long timeout = 2;
+			long timeout = 10;
 			TimeUnit unit = TimeUnit.SECONDS;
 			TimeOut out = new TimeOut(r, timeout, unit);
 			
