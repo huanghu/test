@@ -17,10 +17,10 @@ public class ZnodeRun extends ConnectionWatcher{
 	public void run(String path) throws KeeperException, InterruptedException{
 		Watcher watcher = new NodeChangeWatcher(zk);
 		
-		ZnodeCommon.create(zk, path, CreateMode.EPHEMERAL);		
+		String node = ZnodeCommon.create(zk, path, CreateMode.EPHEMERAL_SEQUENTIAL);		
 		while (true) {
-			if(ZnodeCommon.exists(zk, path ,false) == true){
-				zk.getData(path, watcher, null);				
+			if(ZnodeCommon.exists(zk, node ,false) == true){
+				zk.getData(node, watcher, null);				
 			}
 		}
 	}
