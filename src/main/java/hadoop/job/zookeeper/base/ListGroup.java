@@ -7,7 +7,6 @@ import java.util.List;
 import org.apache.zookeeper.KeeperException;
 
 /**
- * 列出所有的node
  * @author huanghu
  *
  */

@@ -12,7 +12,6 @@ import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
 
 /**
- * 创建一个组，永久存在
  * @author huanghu
  *
  */

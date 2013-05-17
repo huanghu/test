@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.zookeeper.KeeperException;
 
 /**
- * 生成一个随机数去更新组的内容
  * @author huanghu
  *
  */

@@ -42,6 +42,7 @@ public class ZnodeSchedule extends ConnectionWatcher{
 		KeeperException, 
 		InterruptedException{
 		
+		//可以替换成从队列或数据库中取值
 		String value = makeTask();
 		zk.setData(path, value.getBytes(Constants.CHARSET), -1);
 		zk.getData(path, false, null);

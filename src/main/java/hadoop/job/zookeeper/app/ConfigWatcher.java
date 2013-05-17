@@ -7,7 +7,7 @@ import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.Watcher.Event.EventType;
 /**
- * 监听link{ConfigUpdater.java}生成的内容
+ * link{ConfigUpdater.java}
  * @author huanghu
  *
  */

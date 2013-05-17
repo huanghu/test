@@ -24,7 +24,7 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class DistributeDemo extends Configured implements Tool {
 	
-	private String HOST_NAME = "hadoop-master.360buy.com"; //¿ª·¢¼¯Èº
+	private String HOST_NAME = "hadoop-master.360buy.com"; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èº
 	private String FS_DEFAULT_NAME = String.format("hdfs://%s:8020/", HOST_NAME);
 	private String MAPRED_JOB_TRACKER = String.format("%s:8021", HOST_NAME);
 	
@@ -51,7 +51,7 @@ public class DistributeDemo extends Configured implements Tool {
 	}
 	
 	/**
-	 * ÊÇ·ñ´æÔÚ»º´æ
+	 * ï¿½Ç·ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½
 	 * @param conf
 	 */
 	public void existsCache(Configuration conf){
@@ -93,7 +93,7 @@ public class DistributeDemo extends Configured implements Tool {
 		FileInputFormat.setInputPaths(job, in);
 		FileOutputFormat.setOutputPath(job, out);
 		
-		//ÇåÏ´
+		//ï¿½ï¿½Ï´
 		this.clearOutPath(job.getConfiguration() ,out);
 		
 		job.setMapperClass(Map.class);
@@ -105,7 +105,7 @@ public class DistributeDemo extends Configured implements Tool {
 	}
 	
 	/**
-	 * Çå³ýÊä³öÂ·¾¶
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	 */
 	private void clearOutPath(Configuration conf ,Path out) throws IOException{
 		FileSystem fs = FileSystem.get(conf);

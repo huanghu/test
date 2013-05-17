@@ -2,15 +2,36 @@ package com.buy.test.casual;
 
 
 import java.io.UnsupportedEncodingException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.junit.Test;
 
 
 public class Casual1 {
-	//["ID","REQUESTDATE","AMOUNT","ORGID","SUPPLIERPARENTID","SUPPLIERID"]}
 	@Test
 	public void test(){
-		int i = 10;
-		System.out.println(" & " + ( 1 << 30));
+		length();
+	}
+	
+	//正则表达式判断
+	private void partern(){
+		String str = "${src_system}";
+		Pattern p = Pattern.compile("(\\$\\{)|(\\})");
+		Matcher m = p.matcher(str);
+		if(m.find()){
+			System.out.println("is var");
+		}else {
+			System.out.println("no var");
+		}
+	}
+	
+	//正则表达式过滤 ${src_system}
+	@SuppressWarnings("unused")
+	private void repalceReg(){
+		String prefixElement = "${src_system}";
+		prefixElement = prefixElement.replaceAll("(\\$\\{)|(\\})", "");
+		System.out.println("pri " + prefixElement);
 	}
 	
 	@SuppressWarnings("unused")
@@ -23,9 +44,23 @@ public class Casual1 {
 		}	
 	}
 	
+	
+	private void length(){
+		/*
+		 * 一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三
+		 * */
+		String str = "一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三";
+		try {
+			System.out.println(" sds " + str.getBytes("utf-8").length);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@SuppressWarnings("unused")
 	private void toLower(){
-		String s = "[\"AID\" ,\"NEWPATH\" ,\"SRC_REF_VALUE1\"]}";
+		String s = "ware_id ,ware_status ,UPC_CODE ,OFFLINE_TIME ,ONLINE_TIME,COL_TYPE,status,MODIFIED,CREATED ,'' as outTime ,'' as outTimeColumn";
 		System.out.println("s.toLowerCase() " + s.toLowerCase());
 		
 	}
