@@ -1,10 +1,33 @@
 package hadoop.job.har;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.tools.HadoopArchives;
 import org.apache.hadoop.util.ToolRunner;
 
 public class HarDemo {
+	
+	public static void run(Configuration conf ,String[] args){
+		System.out.println("args " + args);
+		
+	    HadoopArchives harchives = new HadoopArchives(conf);
+	    @SuppressWarnings("unused")
+		int ret = 0;
+
+	    try{
+	      ret = ToolRunner.run(harchives, args);
+	    } catch(Exception e) {
+	      System.err.println(e.getClass().getSimpleName() + " in archives");
+	      final String s = e.getLocalizedMessage();
+	      if (s != null) {
+	        System.err.println(s);
+	      } else {
+	        e.printStackTrace(System.err);
+	      }
+	      
+	    }		
+	}
+	
 	public static void main(String[] args){
 //		args = new String[6];
 //		
@@ -17,7 +40,6 @@ public class HarDemo {
 		
 		System.out.println("args " + args);
 		
-//		HadoopArchives.main(args);
 	    JobConf job = new JobConf(HadoopArchives.class);
 	    HadoopArchives harchives = new HadoopArchives(job);
 	    @SuppressWarnings("unused")

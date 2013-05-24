@@ -25,7 +25,6 @@ public class AttributeMapRedcue {
 		@Override
 		protected void map(LongWritable key, Text value, 
                 Context context) throws IOException, InterruptedException {
-			System.out.println("map value " + value);
 			Text outKey = new Text(key.toString());
 			context.write(outKey, value);
 		}
@@ -61,14 +60,15 @@ public class AttributeMapRedcue {
 			  
 			  List<Text> alreadyOutText = new ArrayList<Text>();
 			  for(Text value: values) {
+				  System.out.println("value " + value);
 				  String v = value.toString();
 				  String attributeIdVender = v.split("\t")[1];
 				  for(java.util.Map<String, String> wareCategory : wareCategoryList){
 					  String attributeIdWare = wareCategory.get("attributeId");
-					  
 					  if(attributeIdVender.equals(attributeIdWare)){
 						  Text outValue = new Text();
 						  outValue.set(v + "	" + wareCategory.get("features"));
+						  System.out.println("outValue " + outValue.toString());
 						  if(alreadyOutText.contains(outValue)){
 							  //有重复
 							  continue;
@@ -76,7 +76,6 @@ public class AttributeMapRedcue {
 							  alreadyOutText.add(outValue);
 							  context.write(new Text(attributeIdWare) ,outValue);  
 						  }
-						  
 					  }
 				  }
 			  }

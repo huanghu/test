@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-app xmlns="uri:oozie:workflow:0.2" name="import_popware">
+    <start to="sqoop_import_popware"/>
+    
+	<!--popware-->
+    <action name="sqoop_import_popware">
+        <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <prepare>
+                <delete path="${nameNode}/user/huanghu/cacheTest/input"/>
+            </prepare>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <arg>import</arg>
+            <arg>--connect</arg>
+            <arg><![CDATA[jdbc:oracle:thin:@10.10.225.20:1521:testdb1]]></arg>
+            <arg>--username</arg>
+            <arg>popware</arg>
+            <arg>--password</arg>
+            <arg>popware</arg>
+            <arg>--query</arg>
+            <arg><![CDATA[select value_id ,attribute_id ,attribute_value from popware.VENDER_CATEGORY_VALUE where status=1 and $CONDITIONS]]></arg>
+            <arg>--where</arg>
+            <arg>1=1</arg>
+            <arg>--split-by</arg> 
+            <arg>value_id</arg>
+            <arg>--fields-terminated-by</arg>  
+            <arg>\t</arg>
+            <arg>--null-string</arg>
+            <arg></arg>
+            <arg>--null-non-string</arg>
+            <arg></arg>
+            <arg>--target-dir</arg> 
+            <arg>/user/huanghu/cacheTest/input</arg>
+        </sqoop>
+        <ok to="end"/>
+        <error to="fail"/>
+    </action>
+    
+    <kill name="fail">
+        <message>Sqoop failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>
