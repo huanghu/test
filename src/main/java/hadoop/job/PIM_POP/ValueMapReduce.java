@@ -37,12 +37,10 @@ public class ValueMapReduce {
 			 URI[] cacheArchives = DistributedCache.getCacheArchives(context.getConfiguration());
 			 if(cacheArchives != null && cacheArchives.length > 0){
 				 java.util.Map<String, String[]> cacheMap = this.getCacheMap(context.getConfiguration() ,cacheArchives);
-//				 java.util.Map<String, String[]> cacheMap = this.getCacheMap(cacheFiles);
 				 
 				 for(Text value : values){
 					 try{
 						 Text outValue = new Text();
-						 
 						 List<String> outStrings = this.getOutStrings(value ,cacheMap);
 						 outValue.set(outStrings.toString());
 						 context.write(key, outValue);						 
@@ -87,7 +85,6 @@ public class ValueMapReduce {
 						 if(!line.equals("")){
 							 String[] cacheAttribute = line.split("\t");
 							 if(cacheAttribute != null && cacheAttribute.length >0){
-								 System.out.println("line " + line);
 								 //在缓存文件中每行的第一个值
 								 String attributeId = cacheAttribute[0];
 								 //将每一行不为空的值（转换为数组后）放入map

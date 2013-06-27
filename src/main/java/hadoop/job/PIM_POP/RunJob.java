@@ -38,42 +38,42 @@ public class RunJob {
 	    jar2 = tranPath(conf, jar2);
 	    
 	    conf.set("tmpjars", String.format("%s,%s", jar1 ,jar2));
-//	    Job job = new Job(conf, "Attribute");
-//	    job.setJarByClass(AttributeMapRedcue.class);
-//
-//	    
-//	    job.setMapperClass(AttributeMapRedcue.Map.class);
-//	    job.setReducerClass(AttributeMapRedcue.Reduce.class);
-//
-//	    job.setOutputKeyClass(Text.class);
-//	    job.setOutputValueClass(Text.class);
-//	    FileInputFormat.addInputPath(job, new Path("/user/huanghu/cacheTest/input"));
-//	    FileOutputFormat.setOutputPath(job, new Path("/user/huanghu/cacheTest/output"));
-//	    
-//		checkFile(conf, "/user/huanghu/cacheTest/output");
-//	    
-//		job.waitForCompletion(true);
+	    Job job = new Job(conf, "Attribute");
+	    job.setJarByClass(AttributeMapRedcue.class);
+
+	    
+	    job.setMapperClass(AttributeMapRedcue.Map.class);
+	    job.setReducerClass(AttributeMapRedcue.Reduce.class);
+
+	    job.setOutputKeyClass(Text.class);
+	    job.setOutputValueClass(Text.class);
+	    FileInputFormat.addInputPath(job, new Path("/user/huanghu/cacheTest/input"));
+	    FileOutputFormat.setOutputPath(job, new Path("/user/huanghu/cacheTest/output"));
+	    
+		checkFile(conf, "/user/huanghu/cacheTest/output");
+	    
+		job.waitForCompletion(true);
 	    
 	    //归档
 	    //creachArchives(conf);
 		
-	    //放入缓存
-		DistributedCache.addCacheArchive(new URI("/user/huanghu/cacheTest/archives/output/attributeCache.har"), conf);
-		//	    DistributedCache.addCacheFile(new URI("/user/huanghu/cacheTest/archives/output/attributeCache.har/part-0"), conf);
-	    
-	    //第二个job
-	    System.out.println("第二个job");
-	    Job job2 = new Job(conf, "Value");
-	    job2.setMapperClass(ValueMapReduce.Map.class);
-	    job2.setReducerClass(ValueMapReduce.Reduce.class);
-
-	    job2.setOutputKeyClass(Text.class);
-	    job2.setOutputValueClass(Text.class);
-	    FileInputFormat.addInputPath(job2, new Path("/user/huanghu/cacheTest/output"));
-	    FileOutputFormat.setOutputPath(job2, new Path("/user/huanghu/cacheTest/final/output"));
-	    
-		checkFile(conf, "/user/huanghu/cacheTest/final/output");
-	    job2.waitForCompletion(true);
+//	    //放入缓存
+//		DistributedCache.addCacheArchive(new URI("/user/huanghu/cacheTest/archives/output/attributeCache.har"), conf);
+//		//	    DistributedCache.addCacheFile(new URI("/user/huanghu/cacheTest/archives/output/attributeCache.har/part-0"), conf);
+//	    
+//	    //第二个job
+//	    System.out.println("第二个job");
+//	    Job job2 = new Job(conf, "Value");
+//	    job2.setMapperClass(ValueMapReduce.Map.class);
+//	    job2.setReducerClass(ValueMapReduce.Reduce.class);
+//
+//	    job2.setOutputKeyClass(Text.class);
+//	    job2.setOutputValueClass(Text.class);
+//	    FileInputFormat.addInputPath(job2, new Path("/user/huanghu/cacheTest/output"));
+//	    FileOutputFormat.setOutputPath(job2, new Path("/user/huanghu/cacheTest/final/output"));
+//	    
+//		checkFile(conf, "/user/huanghu/cacheTest/final/output");
+//	    job2.waitForCompletion(true);
 	}
 	
 	private static void checkFile(Configuration conf ,String pathStr){

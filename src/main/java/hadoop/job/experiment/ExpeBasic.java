@@ -20,8 +20,8 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class ExpeBasic extends Configured implements Tool {
 	
-//	private String HOST_NAME = "master.slave"; //±¾µØ¼¯Èº
-	private String HOST_NAME = "hadoop-master.360buy.com"; //¿ª·¢¼¯Èº
+//	private String HOST_NAME = "master.slave"; //ï¿½ï¿½ï¿½Ø¼ï¿½Èº
+	private String HOST_NAME = "hadoop-master.360buy.com"; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èº
 	private String FS_DEFAULT_NAME = String.format("hdfs://%s:8020/", HOST_NAME);
 	private String MAPRED_JOB_TRACKER = String.format("%s:8021", HOST_NAME);
 	
@@ -46,7 +46,7 @@ public class ExpeBasic extends Configured implements Tool {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			args = new String[]{"/user/huanghu/aa" ,"/user/huanghu/bb"}; 
+			args = new String[]{"/user/huanghu/input_data/EgoAttrGroupProp/2013/04/part-m-00000-INT-53-egoAttrGroupErpProp-W-20130415114815" ,"/user/huanghu/bb"}; 
 			int res = ToolRunner.run(new Configuration(), new ExpeBasic() ,args);
 			System.exit(res);
 		} catch (Exception e) {
@@ -60,6 +60,7 @@ public class ExpeBasic extends Configured implements Tool {
 		Configuration conf = getConf();
 		conf.set("fs.default.name", FS_DEFAULT_NAME);
 		conf.set("mapred.job.tracker", MAPRED_JOB_TRACKER);
+		conf.set("mapred.job.queue.name", "erpmerge");
 		conf.set("hadoop.job.user","huanghu");
 		
 		Job job = new Job(conf ,"RPCtest");
