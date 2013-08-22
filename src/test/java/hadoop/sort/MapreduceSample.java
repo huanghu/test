@@ -23,9 +23,6 @@ public class MapreduceSample {
 		  protected void reduce(Text key, Iterable<TextPair> values, Context context
           ) throws IOException, InterruptedException {
 			  System.out.println("reducer junit");
-			  for(Text value: values) {
-				  context.write(key, value);
-			  }
 		  }		
 	}
 }
