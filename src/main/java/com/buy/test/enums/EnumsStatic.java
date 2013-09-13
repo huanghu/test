@@ -17,6 +17,7 @@ public class EnumsStatic {
 	}
 	
 	public static void main(String[] args){
-		System.out.println("ss " + EnumsStatic.enumTest.ENUM1.value);
+		System.out.println("ss " + enumTest.ENUM1);
+//		System.out.println("ss " + EnumsStatic.enumTest.ENUM1.value);
 	}
 }
