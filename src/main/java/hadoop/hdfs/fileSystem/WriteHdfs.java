@@ -17,6 +17,8 @@ public class WriteHdfs {
         byte[] buff = "hello hadoop world!\n".getBytes();
         Path dfs=new Path("/test");
         FSDataOutputStream outputStream=hdfs.create(dfs);
-        outputStream.write(buff,0,buff.length);
+        outputStream.write(buff);
+        outputStream.flush();
+        outputStream.close();
     }
 }
