@@ -1,6 +1,5 @@
 package com.buy.test.spring;
 
-import org.springframework.stereotype.Service;
 
 //@Service(value="springService2")
 public class SpringService2 implements ISpringService {
