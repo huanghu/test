@@ -12,8 +12,8 @@ public class ScheduledThreadPoolExecutorDemo {
 		ScheduledThreadPoolExecutor demo = new ScheduledThreadPoolExecutor(1);
 		int initialDelay1 = 1;
 		int period1 = 1;
-		int initialDelay2 = 1;
-		int period2 = 1;
+//		int initialDelay2 = 1;
+//		int period2 = 1;
 		
 		
 		demo.scheduleAtFixedRate(new Runnable() {

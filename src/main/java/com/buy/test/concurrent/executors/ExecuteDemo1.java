@@ -14,7 +14,7 @@ public class ExecuteDemo1 {
 
 	
 	public static void main(String[] args){
-		byte[] b = new byte[1];
+//		byte[] b = new byte[1];
 		while (true) {
 			Runnable task = new Runnable() {
 				volatile boolean sync = true;				
