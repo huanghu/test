@@ -8,9 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.dao.mongodb.dao.IMainErrorDao;
 import com.dao.mongodb.domain.EbsLog;
+import com.dao.mongodb.domain.ReRunFixDto;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
+import static org.springframework.data.mongodb.core.query.Update.update;
 
 @Repository
 public class MainErrorDaoImpl implements IMainErrorDao {
@@ -31,6 +33,19 @@ public class MainErrorDaoImpl implements IMainErrorDao {
 	public long findErrorLogTotalByEbsLog(String wfName) {
 		long total = mongoTemplate.count(query(where(key1).in(wfName)), EbsLog.class);
 		return total;
+	}
+	
+	@Override
+	public void updateReRunFixWf(ReRunFixDto reRunFixDto, String hdfsPath) {
+		String id = reRunFixDto.getId();
+		mongoTemplate.findAndModify(query(where("_id").is(id)), update("hdfsPath" ,hdfsPath), ReRunFixDto.class);
+	}
+
+	@Override
+	public void updateReRunFixWfMuliField(ReRunFixDto reRunFixDto,
+			String hdfsPath) {
+		reRunFixDto.setHdfsPath(hdfsPath);
+		mongoTemplate.save(reRunFixDto);
 	}
 
 }

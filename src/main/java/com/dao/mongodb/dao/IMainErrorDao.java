@@ -3,6 +3,7 @@ package com.dao.mongodb.dao;
 import java.util.List;
 
 import com.dao.mongodb.domain.EbsLog;
+import com.dao.mongodb.domain.ReRunFixDto;
 
 
 /**
@@ -25,4 +26,8 @@ public interface IMainErrorDao {
 	 * @return
 	 */
 	public long findErrorLogTotalByEbsLog(String wfName);
+	
+	public void updateReRunFixWf(ReRunFixDto reRunFixDto ,String hdfsPath);
+	
+	public void updateReRunFixWfMuliField(ReRunFixDto reRunFixDto ,String hdfsPath);
 }
