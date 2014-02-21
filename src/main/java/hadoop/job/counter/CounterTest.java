@@ -11,7 +11,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 /**
- * ÄÚÖÃ¼ÆÊýÆ÷
+ * ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author huanghu
  *
  */

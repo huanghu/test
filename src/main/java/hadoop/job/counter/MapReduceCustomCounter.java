@@ -9,6 +9,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
+import org.apache.hadoop.mapreduce.Counter;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -20,8 +21,8 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class MapReduceCustomCounter extends Configured implements Tool {
 	
-//	private String HOST_NAME = "master.slave"; //±¾µØ¼¯Èº
-	private String HOST_NAME = "hadoop-master.360buy.com"; //¿ª·¢¼¯Èº
+//	private String HOST_NAME = "master.slave"; //ï¿½ï¿½ï¿½Ø¼ï¿½Èº
+	private String HOST_NAME = "hadoop-master.360buy.com"; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èº
 	private String FS_DEFAULT_NAME = String.format("hdfs://%s:8020/", HOST_NAME);
 	private String MAPRED_JOB_TRACKER = String.format("%s:8021", HOST_NAME);
 	
@@ -30,6 +31,9 @@ public class MapReduceCustomCounter extends Configured implements Tool {
 		public void map(LongWritable key ,Text value ,Context context){
 			Text outKey = new Text(key.toString());
 			try {
+			    Counter counter = context.getCounter("countTest", "countTest");
+			    counter.increment(1);
+				
 				context.write(outKey, value);
 				context.getCounter(CounterEnum.MAP).increment(1);
 			} catch (IOException e) {

@@ -70,4 +70,5 @@ public class Casual1 {
 		char a = 's';
 		System.out.println("rr " + a);
 	}
+	
 }
