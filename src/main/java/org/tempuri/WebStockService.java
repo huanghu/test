@@ -14,7 +14,6 @@ import javax.xml.ws.Service;
  * Generated source version: 2.6.0
  * 
  */
-@SuppressWarnings("restriction")
 @WebServiceClient(name = "WebStockService", 
                   wsdlLocation = "http://erp2.360buy.com/wzht/WebStockService.asmx?WSDL",
                   targetNamespace = "http://tempuri.org/") 

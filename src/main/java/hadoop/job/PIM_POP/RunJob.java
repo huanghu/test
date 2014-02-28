@@ -3,16 +3,13 @@ package hadoop.job.PIM_POP;
 import hadoop.job.har.HarDemo;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
@@ -95,6 +92,7 @@ public class RunJob {
 	    return newJarPath;
 	}
 	
+	@SuppressWarnings("unused")
 	private static void creachArchives(Configuration conf){
 		
 		checkFile(conf, "/user/huanghu/cacheTest/archives/output");

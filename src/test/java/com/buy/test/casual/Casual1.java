@@ -15,7 +15,7 @@ public class Casual1 {
 	}
 	
 	//正则表达式判断
-	private void partern(){
+	protected void partern(){
 		String str = "${src_system}";
 		Pattern p = Pattern.compile("(\\$\\{)|(\\})");
 		Matcher m = p.matcher(str);

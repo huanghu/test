@@ -1,0 +1,6 @@
+----------------------------------------------------------------
+2014-02-28 13:13:10.503 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.6.1.0 - (938214): instance a816c00e-0144-78a0-87e5-0000009f9590 
+on database directory D:\Java\program\test\${oozie.data.dir}\${oozie.db.schema.name}-db   with class loader sun.misc.Launcher$AppClassLoader@142c63f
+
+Database Class Loader started - derby.database.classpath=''

@@ -14,6 +14,7 @@ public class TextTest {
 		t2 = new Text("1:1232");
 	}
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void test(){
 		String s = "12";

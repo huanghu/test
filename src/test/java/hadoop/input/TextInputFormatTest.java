@@ -1,6 +1,5 @@
 package hadoop.input;
 
-import static org.junit.Assert.*;
 
 import java.io.IOException;
 
@@ -8,7 +7,6 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapreduce.InputSplit;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.TaskAttemptID;
-import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.junit.Before;
 import org.junit.Test;

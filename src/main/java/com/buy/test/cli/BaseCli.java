@@ -3,11 +3,8 @@ package com.buy.test.cli;
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.commons.cli.PosixParser;
 
 public class BaseCli {
 	public static void main(String[] args)throws ParseException {
@@ -36,6 +33,7 @@ public class BaseCli {
 	        boolean verbose = false;
 	        if (commandLine.hasOption('v')) {
 	                verbose = true;
+	                System.out.println(verbose);
 	        }
 	        
 	        if (commandLine.hasOption("f")) {

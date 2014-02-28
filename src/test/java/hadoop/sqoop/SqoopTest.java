@@ -15,10 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mrunit.mapreduce.MapReduceDriver;
-import org.apache.oozie.action.hadoop.SqoopMain;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,7 +24,6 @@ import com.cloudera.sqoop.Sqoop;
 import com.cloudera.sqoop.SqoopOptions;
 import com.cloudera.sqoop.manager.ConnManager;
 import com.cloudera.sqoop.manager.MySQLManager;
-import com.cloudera.sqoop.manager.SqlManager;
 import com.cloudera.sqoop.tool.ImportTool;
 
 
@@ -58,6 +53,7 @@ public class SqoopTest {
 	    try {
 			ConnManager manager = factory.getManager(
 					new JobData(new SqoopOptions(), tool));
+			System.out.println(manager);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

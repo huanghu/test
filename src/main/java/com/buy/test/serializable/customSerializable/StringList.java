@@ -17,6 +17,7 @@ public class StringList implements Serializable {
 	private static class Entry{
 		String data;
 		Entry next;
+		@SuppressWarnings("unused")
 		Entry previous;
 	}
 	

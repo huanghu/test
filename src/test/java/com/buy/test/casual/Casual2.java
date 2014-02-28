@@ -1,5 +1,6 @@
 package com.buy.test.casual;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import org.junit.Test;
 public class Casual2 {
 	@Test
 	public void test(){
-		this.listEachNull();
+		this.fileFormat();
 	}
 	
 	protected void listEach(){
@@ -24,11 +25,18 @@ public class Casual2 {
 		}
 	}
 	
+	@SuppressWarnings("null")
 	protected void listEachNull(){
-		List<String> lists = null;
 		Iterable<String> it = null;
 		for (String string : it) {
 			System.out.println("s1 " + string);
 		}
+	}
+	
+	protected void fileFormat(){
+		//D:\Java\program\test\target\test-classes
+		File file = new File("/D:\\Java\\program\\test\\target\\test-classes");
+		
+		System.out.println("file " + file.exists());
 	}
 }

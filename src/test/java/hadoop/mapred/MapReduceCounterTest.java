@@ -15,7 +15,6 @@ public class MapReduceCounterTest {
 	private MapReduceDriver<LongWritable ,Text ,Text ,Text ,Text ,Text> mapReduceDriver;
 	private MapReduce.MapClass mapClass;
 	private MapReduce.ReduceClass reduceClass;
-	private List<Pair<Text, Text>> out = null;
 	
 	@Before
 	public void before(){

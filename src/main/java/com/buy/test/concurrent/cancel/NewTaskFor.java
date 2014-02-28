@@ -56,12 +56,13 @@ public class NewTaskFor {
 		public RunnableFuture<T> newTask(){
 			return new FutureTask<T>(this){
 				public boolean cancel(boolean mayInterruptIfRunning){
-					try {
-						SocketUsingTask.this.cancel();
-					} finally{
-						return super.cancel(mayInterruptIfRunning);
-					}
-				}
+//					try {
+//						SocketUsingTask.this.cancel();
+//					} finally{
+//						return super.cancel(mayInterruptIfRunning);
+//					}
+					SocketUsingTask.this.cancel();
+					return super.cancel(mayInterruptIfRunning);				}
 			};
 		}
 	}

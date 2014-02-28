@@ -14,7 +14,6 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.6.0
  * 
  */
-@SuppressWarnings("restriction")
 @WebService(targetNamespace = "http://tempuri.org/", name = "WebStockServiceSoap")
 @XmlSeeAlso({ObjectFactory.class})
 public interface WebStockServiceSoap {
