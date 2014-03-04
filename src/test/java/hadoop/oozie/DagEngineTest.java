@@ -30,9 +30,9 @@ public class DagEngineTest extends Base {
 			e.printStackTrace();
 		}
 		
-		String user = "huanghu";
+		String user = "oozie";
 		String authoken = "hadoop-master.360buy.com";
-		String group = "*";
+		String group = "oozie";
 		String jtKerbreosName = "mapred_HOST";
 		String nnKerbreosName = "hdfs_HOST";
 		

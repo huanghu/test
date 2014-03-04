@@ -8,10 +8,10 @@ public class PrintStreamDemo {
 	
 	BufferedOutputStream outputStream;
 	
-	private void getOutputStream(){
+	protected void getOutputStream(){
 		try {
 			ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
-			String content = "ÊäÈë";
+			String content = "ï¿½ï¿½ï¿½ï¿½";
 			byte[] contentB = content.getBytes();
 			byteOutput.write(contentB);
 		} catch (IOException e) {
@@ -22,7 +22,7 @@ public class PrintStreamDemo {
 	
 	@SuppressWarnings("unused")
 	private void toUnicode(){
-		String s = "ÎÒ";
+		String s = "ï¿½ï¿½";
 		int head = s.charAt(0) >>> 8;
 		int end = s.charAt(0) & 0XFF;
 		
