@@ -57,7 +57,7 @@ public class DataDrivenImportJobTest {
 	@Test
 	public void test(){
 		try {
-			String ormJarFile = "";
+			String ormJarFile = null;
 			dataJob.runImport(null, ormJarFile, "ebook_id", conf);
 		} catch (IOException e) {
 			e.printStackTrace();

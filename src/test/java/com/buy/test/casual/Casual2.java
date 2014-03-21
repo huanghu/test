@@ -9,7 +9,8 @@ import org.junit.Test;
 public class Casual2 {
 	@Test
 	public void test(){
-		this.fileFormat();
+		String features = "consumptionVAT:20,outputVAT:17,inputVAT:17,sdfsdf:ttt,dfsdf#$#$";
+		this.setMainProductTaxs(features);
 	}
 	
 	protected void listEach(){
@@ -38,5 +39,21 @@ public class Casual2 {
 		File file = new File("/D:\\Java\\program\\test\\target\\test-classes");
 		
 		System.out.println("file " + file.exists());
+	}
+	
+	public void setMainProductTaxs(String taxString){
+		String[] taxs = taxString.split(",");
+		for (String tax : taxs) {
+			String[] taxArr = tax.split(":");
+			if (taxArr.length == 2) {
+				if ("inputVAT".equals(taxArr[0])) {
+					System.out.println("purchasing_tax_code" + taxArr[1]);
+				} else if ("outputVAT".equals(taxArr[0])) {
+					System.out.println("output_tax_code" + taxArr[1]);
+				} else if ("consumptionVAT".equals(taxArr[0])) {
+					System.out.println("consumption_tax_code" + taxArr[1]);
+				}
+			}
+		}
 	}
 }
