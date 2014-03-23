@@ -30,6 +30,7 @@ public class ToUpperCase {
 		try {
 			String outputPath = ToUpperCase.class.getResource("/") + "tools/text1.txt";			
 			outputPath = outputPath.replace("file:/", "");
+
 			FileWriter fWriter = new FileWriter(new File(outputPath));
 			
 			InputStream is = resource.getInputStream();
@@ -43,6 +44,7 @@ public class ToUpperCase {
 				fWriter.append("\r\n");
 			}
 			fWriter.flush();
+			fWriter.close();
  
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
