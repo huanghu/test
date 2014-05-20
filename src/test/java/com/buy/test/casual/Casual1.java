@@ -2,6 +2,7 @@ package com.buy.test.casual;
 
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,7 +12,7 @@ import org.junit.Test;
 public class Casual1 {
 	@Test
 	public void test(){
-		length();
+		aa();
 	}
 	
 	//正则表达式判断
@@ -45,6 +46,7 @@ public class Casual1 {
 	}
 	
 	
+	@SuppressWarnings("unused")
 	private void length(){
 		/*
 		 * 一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三
@@ -69,6 +71,13 @@ public class Casual1 {
 	private void charTest(){
 		char a = 's';
 		System.out.println("rr " + a);
+	}
+	
+	private void aa(){
+		java.text.DecimalFormat myformat =new java.text.DecimalFormat("#.00");
+		BigDecimal amount = new BigDecimal(myformat.format(0.185));
+		System.out.println("amount " + amount);
+		
 	}
 	
 }
