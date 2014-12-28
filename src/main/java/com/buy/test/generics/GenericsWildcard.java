@@ -1,20 +1,28 @@
 package com.buy.test.generics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ¼Ì³Ğ Í¨Åä·û
+ * é€šé…ç¬¦
  * @author huanghu
  *
  */
-public class GenericsWildcard {
-	public void test1(List<?> a){
-		System.out.println(a.get(0));
+public class GenericsWildcard<E extends Number> {
+	ArrayList<E> lists = new ArrayList<E>();
+	
+	private void setLists(E e){
+		lists.add(e);
 	}
 	
-	@SuppressWarnings("unused")
-	private class GenericsExtendSub extends GenericsExtend<String>{
-		
+	private List<E> getLists(){
+		return lists;
 	}
 	
+	public static void main(String[] args){
+		GenericsWildcard<Integer> gen = new GenericsWildcard<Integer>();
+		gen.setLists(new Integer(1));
+		List<?> l = gen.getLists();
+		System.out.println("first " + l.get(0));
+	}
 }
